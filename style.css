@@ -1,10 +1,7 @@
 @font-face {
     font-family: 'Heebo';
-<<<<<<< HEAD
-    src: url(./Fonts/Heebo-Bold.woff2) format( 'woff2' );
-=======
     src: url(./Fonts/Heebo-Bold.woff2) format('woff2');
->>>>>>> refs/remotes/origin/main
+    src: url(./Fonts/Heebo-Light.woff2) format('woff2');
     font-weight: 700;
     font-style: normal;
     font-display: swap;
@@ -12,12 +9,9 @@
 
 @font-face {
     font-family: 'Heebo';
-<<<<<<< HEAD
+    src: url(./Fonts/Heebo-Bold.woff2) format('woff2');
     src: url(./Fonts/Heebo-Light.woff2) format('woff2');
-=======
-    src: url(./Fonts/Heebo-Regular.woff2) format('woff2');
->>>>>>> refs/remotes/origin/main
-    font-weight: 400;
+    font-weight: 300;
     font-style: normal;
     font-display: swap;
 }
@@ -30,10 +24,3 @@
     font-display: swap;
 }
 
-.square {
-    display: block;
-    width: 200px;
-    height: 200px;
-    background-color: aqua;
-    border: 1px solid #444444;
-}
