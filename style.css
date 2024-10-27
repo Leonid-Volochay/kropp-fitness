@@ -51,6 +51,10 @@ body {
 
 }
 
+a {
+    color: var(--color-light);
+}
+
 .container {
     max-width: calc(var(--container-width) + var(--container-padding) * 2);
     margin-inline: auto;
@@ -61,4 +65,21 @@ h1, h2, h3, h4, h5, h6  {
     text-transform: uppercase;
     font-weight: bold;
 }
-\
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 20px;
+}
+
+.header-menu-list {
+    display: flex;
+    column-gap: 50px;
+    font-weight: bold;
+    
+}
+
+.header-menu-link {
+    text-decoration: none;
+}
