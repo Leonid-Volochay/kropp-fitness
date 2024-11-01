@@ -41,6 +41,8 @@
     --container-padding: 15px;
 
     --transition-duration: 0.2s;
+
+    --header-height: 90px;
 }
 
 body {
@@ -77,6 +79,12 @@ a:hover {
 h1, h2, h3, h4, h5, h6  {
     text-transform: uppercase;
     font-weight: bold;
+}
+
+.title-medium {
+    font-size: 40px;
+    line-height: 1.3;
+    color: var(--color-light);
 }
 
 .visually-hidden {
@@ -117,6 +125,7 @@ h1, h2, h3, h4, h5, h6  {
     justify-content: space-between;
     align-items: center;
     column-gap: 20px;
+    min-height: var(--header-height);
     padding-inline: 32px;
     background-color: var(--color-light-dark);
 }
@@ -133,7 +142,7 @@ h1, h2, h3, h4, h5, h6  {
 
 .header-menu-link {
     display: inline-flex;
-    height: 90px;
+    height: var(--header-height);
     column-gap: 7px;
     align-items: center;
     text-decoration: none;
@@ -187,7 +196,7 @@ h1, h2, h3, h4, h5, h6  {
     flex-direction: column;
     justify-content: end;
     padding: 36px 70px;
-    min-height: 985px;
+    min-height: calc(100vh - var(--header-height));
     color: var(--color-light);
     background-color: var(--color-light-dark);
 }
@@ -200,13 +209,13 @@ h1, h2, h3, h4, h5, h6  {
     display: flex;
     align-items: end;
     font-weight: bold;
-    font-size: min(1.56vw, 30px);
+    font-size: clamp(16px, 1.56vw, 30px);
     line-height: 1.2;
 }
 
 .banner-info::before {
     content: '';
-    width: min(10.1vw, 194px);
+    width: clamp(60px, 10.1vw, 194px);
     aspect-ratio: 1;
     margin-right: 30px;
     background: url('./images/bold-arrow-down-right.svg') center/contain no-repeat;
@@ -252,6 +261,54 @@ h1, h2, h3, h4, h5, h6  {
     border-color: var(--color-light-gray);
 }
 
+.motivation-item:nth-child(even) {
+    background-color: var(--color-light-dark);
+}
+
+.motivation-item:nth-child(even) .motivation-card {
+    flex-direction: row-reverse;
+}
+
+.motivation-card {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    column-gap: clamp(30px, 10.42vw, 200px);
+}
+
+.motivation-card-image {
+    margin-block: -60px;
+}
+
+.motivation-card-body {
+    padding-left: 35px;
+}
+
+.backdrop-title {
+    position: relative;
+    z-index: 2;
+}
+
+.backdrop-title::before {
+    content: '';
+    display: block;
+    position: absolute;
+    right: calc(100% + 8px);
+    width: 26px;
+    aspect-ratio: 1;
+    background: url(./images/Plus.svg) center/contain no-repeat;
+}
+
+.backdrop-title::after {
+    content: attr(data-title);
+    font-size: 2.8em;
+    font-family: var(--font-family-accent);
+    position: absolute;
+    color: transparent;
+    -webkit-text-stroke: 1px solid var(--color-light-gray);
+    text-stroke: 1px solid var(--color-light-gray);
+    color: green;
+}
 
 @media (max-width: 1024px) {
     .header{
@@ -267,6 +324,15 @@ h1, h2, h3, h4, h5, h6  {
 
     .header-menu-link {
         height: 50px;
+    }
+
+    .header,
+    .banner {
+        padding-inline: 15px;
+    }
+
+    .banner {
+        row-gap: 10px;
     }
 }
 
@@ -290,6 +356,15 @@ h1, h2, h3, h4, h5, h6  {
 
     .header-actions {
         column-gap: 8px;
+    }
+
+    .banner-info {
+        margin-bottom: 5px;
+    }
+
+    .banner-info::before {
+        margin-right: 10px;
+
     }
 }
 
