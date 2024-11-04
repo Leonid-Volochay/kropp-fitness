@@ -87,12 +87,12 @@ p:not([class]):not(:last-child) {
 h1, h2, h3, h4, h5, h6  {
     text-transform: uppercase;
     font-weight: bold;
+    color: var(--color-light);
 }
 
 .title-medium {
-    font-size: 40px;
+    font-size: clamp(20px, 2.1vw, 40px);
     line-height: 1.3;
-    color: var(--color-light);
 }
 
 .visually-hidden {
@@ -120,8 +120,33 @@ h1, h2, h3, h4, h5, h6  {
     font-weight: bold;
     letter-spacing: 1.2px;
     text-transform: uppercase;
+    text-decoration: none;
     background-color: var(--color-light);
     white-space: nowrap;
+}
+
+.button.transparrent {
+    position: relative;
+    height: var(--input-hight);
+    padding-left: 31px;
+    padding-right: 80px;
+    background-color: transparent;
+    border: var(--border);
+}
+
+.button.transparrent::after {
+    position: absolute;
+    right: 0;
+    content: "";
+    height: 100%;
+    aspect-ratio: 1;
+    background: url(./images/ArrowBTN.svg) center/70% no-repeat;
+    border: var(--border);
+    border-radius: 50%;
+}
+
+.button.transparrent:hover {
+    color: var(--color-light-dark);
 }
 
 .button:hover {
@@ -333,6 +358,46 @@ h1, h2, h3, h4, h5, h6  {
     text-stroke: 1px var(--color-light-gray);
 }
 
+.training-types {
+    position: relative;
+    max-width: 1920px;
+    margin-inline: auto;
+    padding-top: 70px;
+    padding-bottom: 120px;
+    background-color: var(--color-dark);
+}
+
+.training-types-list {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 60px;
+}
+
+.training-types-item {
+    --trainingTypesItemIconSize: 80px;
+    padding-top: var(--trainingTypesItemIconSize);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    row-gap: 32px;
+    background: url(./images/Training-types/transparrent-arrow-item-left.svg) 100% 0/var(--trainingTypesItemIconSize) no-repeat;
+}
+
+.training-types-item-title {
+    font-size: 16px;
+}
+
+@media (max-width: 1919px) {
+    .motivation-card-image {
+    margin-block: -25px;}
+}
+
+@media (max-width: 1280px) {
+    .training-types-list{
+    grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 @media (max-width: 1024px) {
     .header{
         flex-wrap: wrap;
@@ -356,6 +421,16 @@ h1, h2, h3, h4, h5, h6  {
 
     .banner {
         row-gap: 10px;
+    }
+
+    .motivation-card {
+        padding-block: 50px;
+    }
+
+    .motivation-card-image {
+        max-width: 30%;
+        height: auto;
+        margin-block: 0;
     }
 }
 
@@ -389,5 +464,35 @@ h1, h2, h3, h4, h5, h6  {
         margin-right: 10px;
 
     }
+
+    .motivation-card,
+    .motivation-item:nth-child(even) .motivation-card {
+        flex-direction: column-reverse;
+    }
+
+    .motivation-card {
+        padding-block: 30px;
+        row-gap: 30px;
+    }
+
+    .motivation-card-image {
+        max-width: 60%;}
+
+        ..motivation-card-description:not(:last-child) {
+            margin-bottom: 15px;
+        }
+
+        .training-types-list{
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            }
+
+            .training-types-item{
+                --trainingTypesItemIconSize: 50px;
+                row-gap: 10px;
+            }
+            .training-types-image {
+                max-width: 120px;
+            }
 }
 
