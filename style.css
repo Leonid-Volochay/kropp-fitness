@@ -145,7 +145,8 @@ h1, h2, h3, h4, h5, h6  {
     color: var(--color-light);
 }
 
-.input::placeholder {
+.input::placeholder,
+select.input:invalid {
     color: var(--color-light-gray);
 }
 
@@ -157,6 +158,18 @@ h1, h2, h3, h4, h5, h6  {
     background-color: var(--color-light-gray);
     color: var(--color-dark);
     outline: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
 
 .button.transparrent {
@@ -600,6 +613,88 @@ h1, h2, h3, h4, h5, h6  {
     scroll-snap-align: start;
 }
 
+.calculate {
+    background-color: var(--color-light-dark);
+    padding-block: 146px;
+}
+
+.calculate-inner {
+    display: flex;
+    align-items: center;
+    column-gap: 36px;
+}
+
+.calculate-body {
+    flex-grow: 1;
+    max-width: 627px;
+
+}
+
+.calculate-form-body {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 18px 30px;
+}
+
+.calculate-input.wide {
+    grid-column: -1/1;
+}
+
+.calculate-title:not(:last-child) {
+margin-bottom: 16px;
+}
+
+.calculate-desciption:not(:last-child) {
+    margin-bottom: 30px;
+    max-width: 385px;
+}
+
+.calculate-form-body:not(:last-child) {
+    margin-bottom: 16px;
+    }
+
+.calculate-table-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 610px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.calculate-table-wrapper::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: var(--color-dark);
+    border-radius: 50%;
+}
+
+.calculate-table {
+    position: relative;
+    border-collapse: collapse;
+}
+
+.calculate-table th {
+    padding-block: 20px;
+    text-align: left;
+    text-transform: uppercase;
+    color: var(--color-light);
+}
+
+.calculate-table td {
+    padding-block: 14px;
+}
+
+.calculate-table tfoot td {
+    padding-top: 33px;
+    padding-bottom: 0;
+    color: var(--color-light);
+}
 
 @media (max-width: 1919px) {
     .motivation-card-image {
